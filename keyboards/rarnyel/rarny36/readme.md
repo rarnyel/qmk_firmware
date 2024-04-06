@@ -1,20 +1,19 @@
-# Scotto36
+# rarny36
 
-![Scotto36](https://i.imgur.com/MCGv0ZHh.jpeg)
+![rarny36](https://i.imgur.com/MCGv0ZHh.jpeg)
 
-A 36-key split monoblock ergonomic ortholinear keyboard with 15° of angle on each half. Case files available [here](https://github.com/joe-scotto/scottokeebs).
-
-*   Keyboard Maintainer: [Joe Scotto](https://github.com/joe-scotto)
-*   Hardware Supported: ATmega32U4
+A 36 key split monoblock ortholinear keyboard heavily inspired by the Scotto34, except with an extra 2 thumb keys, OLED display, and breakouts for solenoid and/or additional I2C peripherals.
+*   Keyboard Maintainer: [Ramy](https://github.com/rarnyel)
+*   Hardware Supported: RP2040
 *   Hardware Availability: [Amazon](https://amazon.com)
 
 Make example for this keyboard (after setting up your build environment):
 
-    make handwired/scottokeebs/scotto36:default
+    make rarnyel/rarny36:default
 
 Flashing example for this keyboard:
 
-    make handwired/scottokeebs/scotto36:default:flash
+    make rarnyel/rarny36:default:flash
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 
