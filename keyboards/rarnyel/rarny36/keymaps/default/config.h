@@ -21,3 +21,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 135
 #define PERMISSIVE_HOLD
 #define TAPPING_TERM_PER_KEY
+
+// OLED options
+#define OLED_BRIGHTNESS 255
+#define OLED_IC OLED_IC_SSD1306
+// #define BONGO_ENABLE
+
+// extern uint8_t oled_mode;
+
+// enum oled_modes {
+//   OLED_BONGO,
+//   OLED_BONGO_MIN
+//   OLED_DEFAULT,
+//   OLED_TIME,
+//   OLED_OFF,
+//   _NUM_OLED_MODES
+// };

@@ -1,2 +1,9 @@
 # Bootloader selection
 BOOTLOADER = rp2040
+
+# OLED settings
+OLED_ENABLE = yes
+OLED_DRIVER = ssd1306
+OLED_DRIVER_ENABLE = yes
+OLED_TRANSPORT = i2c
+WPM_ENABLE = yes

@@ -18,8 +18,8 @@
     },
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x1013",
-        "vid": "0x534B"
+        "pid": "0x0001",
+        "vid": "0x5245"
     },
     "community_layouts": ["split_3x5_3"],
     "layouts": {
