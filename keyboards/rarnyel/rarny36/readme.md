@@ -3,6 +3,7 @@
 ![rarny36](https://i.imgur.com/MCGv0ZHh.jpeg)
 
 A 36 key split monoblock ortholinear keyboard heavily inspired by the Scotto34, except with an extra 2 thumb keys, OLED display, and breakouts for solenoid and/or additional I2C peripherals.
+
 *   Keyboard Maintainer: [Ramy](https://github.com/rarnyel)
 *   Hardware Supported: RP2040
 *   Hardware Availability: [Amazon](https://amazon.com)

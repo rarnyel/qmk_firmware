@@ -26,20 +26,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x5_3(
         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,               KC_Y,         KC_U,           KC_I,             KC_O,           KC_P, 
         LCTL_T(KC_A),   LSFT_T(KC_S),   KC_D,           KC_F,           KC_G,               KC_H,         KC_J,           KC_K,             RSFT_T(KC_L),   RCTL_T(KC_SCLN), 
-        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,               KC_N,         KC_M,           KC_COMM,          KC_DOT,         KC_SLSH, 
-                                        LCTL_T(KC_ESC), LSFT_T(KC_SPC), LT(1,KC_LGUI),      LT(2,KC_TAB), ALL_T(KC_SPC),  LALT_T(KC_BSPC)
+        LGUI_T(KC_Z),   KC_X,           KC_C,           KC_V,           KC_B,               KC_N,         KC_M,           KC_COMM,          KC_DOT,         KC_SLSH, 
+                                        LCTL_T(KC_ESC), LSFT_T(KC_SPC), LT(1,KC_ENT),       LT(2,KC_TAB), KC_SPC,         LALT_T(KC_BSPC)
     ),
     [1] = LAYOUT_split_3x5_3(
         KC_1,       KC_2,       KC_3,       KC_4,       KC_5,           KC_6,       KC_7,       KC_8,       KC_9,       KC_0, 
-        KC_LSFT,    KC_LCTL,    KC_NO,      KC_HOME,    KC_END,         KC_LEFT,    KC_UP,      KC_DOWN,    KC_RGHT,    KC_RSFT, 
-        KC_NUBS,    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPLY,        KC_QUOT,    KC_PGUP,    KC_PGDN,    KC_LBRC,    KC_RBRC, 
-                                KC_NO,      KC_NO,      KC_NO,          KC_DEL,     KC_SPC,     KC_TAB
+        KC_LCTL,    KC_LSFT,    TO(1),      KC_MINS,    KC_BSPC,        KC_LEFT,    KC_UP,      KC_DOWN,    KC_RGHT,    KC_RSFT, 
+        KC_NUBS,    KC_COMM,    KC_DOT,     KC_EQL,     KC_ENT,         KC_QUOT,    KC_NO,      KC_NO,      KC_LBRC,    KC_RBRC, 
+                                KC_NO,      TO(0),      KC_NO,          KC_TAB,     KC_SPC,     KC_DEL
     ),
     [2] = LAYOUT_split_3x5_3(
-        KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,      KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, 
-        KC_GRV, KC_NO,  KC_NO,  KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO,  KC_F11, KC_F12, 
-        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO, 
-                        KC_NO,  KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO
+        KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10, 
+        KC_GRV,     KC_NO,      TO(2),      KC_NO,      KC_SLEP,    KC_CAPS,    KC_PGUP,    KC_PGDN,    KC_F11,     KC_F12, 
+        KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPLY,    KC_NO,      KC_NO,      KC_HOME,    KC_END,     KC_BRID,    KC_BRIU, 
+                                KC_NO,      TO(0),      KC_NO,      KC_NO,      KC_NO,      KC_NO
     )
 };
 
