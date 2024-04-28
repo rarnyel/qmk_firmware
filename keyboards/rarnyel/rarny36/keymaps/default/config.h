@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Define options
 #define PERMISSIVE_HOLD
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 500
+#define TAPPING_TERM 220
 
 // OLED options
 #define OLED_BRIGHTNESS 255
