@@ -25,6 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // OLED options
 #define OLED_BRIGHTNESS 255
 #define OLED_IC OLED_IC_SSD1306
+#define I2C_DRIVER I2CD0
+#define I2C1_SDA_PIN GP0
+#define I2C1_SCL_PIN GP1
 // #define BONGO_ENABLE
 
 // extern uint8_t oled_mode;
