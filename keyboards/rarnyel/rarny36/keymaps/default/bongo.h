@@ -4,6 +4,7 @@
 #define ANIM_SIZE 636 // number of bytes in array, minimize for adequate firmware size, max is 1024
 #define IDLE_FRAMES 5
 #define IDLE_TIMEOUT 750 // the amount of time it takes to return to idle
+#define TAP_TIMEOUT 400 // the amount of time it takes to return to idle
 #define TAP_FRAMES 2
 #define KEYS_SIZE 100 // the number of keys stored in the array that tracks keypresses; how many keys are on the board?
 
@@ -29,6 +30,7 @@ struct pair_int_int pressed_keys_prev[KEYS_SIZE];
 uint8_t pressed_keys_index = 0;
 
 bool key_down = 0;
+bool tap_flag = 0;
 char wpm[42];
 
 static const char PROGMEM idle[IDLE_FRAMES][ANIM_SIZE] =
@@ -420,6 +422,11 @@ void eval_anim_state(void)
 {
     key_down = detect_key_down();
 
+    if (key_down)
+    {
+        tap_flag = 1;
+    }
+
     switch (anim_state)
     {
         case Idle:
@@ -442,10 +449,12 @@ void eval_anim_state(void)
             break;
 
         case Tap:
-            if (!key_down) // Tap to Prep
+            // if (!key_down) // Tap to Prep
+            if (timer_elapsed32(idle_timeout_timer) >= TAP_TIMEOUT) // Tap to prep
             {
                 anim_state = Prep;
                 idle_timeout_timer = timer_read32();
+                tap_flag = 0;
             }
             break;
 
@@ -463,6 +472,8 @@ static void draw_bongo(bool minimal)
     switch (anim_state)
     {
         case Idle:
+            // sprintf(wpm, "IDL:%03d", get_current_wpm());
+            // oled_write(wpm, false);
             if (minimal)
                 oled_write_raw_P(idle_minimal[abs((IDLE_FRAMES - 1) - current_idle_frame)], ANIM_SIZE);
             else
@@ -475,6 +486,8 @@ static void draw_bongo(bool minimal)
             break;
 
         case Prep:
+            // sprintf(wpm, "PRP:%03d", get_current_wpm());
+            // oled_write(wpm, false);
             if (minimal)
                 oled_write_raw_P(prep_minimal[0], ANIM_SIZE);
             else
@@ -482,11 +495,17 @@ static void draw_bongo(bool minimal)
             break;
 
         case Tap:
-            if (minimal)
-                oled_write_raw_P(tap_minimal[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
-            else
-                oled_write_raw_P(tap[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
-            current_tap_frame = (current_tap_frame + 1) % TAP_FRAMES;
+            // sprintf(wpm, "TAP:%03d", current_tap_frame);
+            // oled_write(wpm, false);
+            if (tap_flag)
+            {
+                if (minimal)
+                    oled_write_raw_P(tap_minimal[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
+                else
+                    oled_write_raw_P(tap[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
+                current_tap_frame = (current_tap_frame + 1) % TAP_FRAMES;
+                tap_flag = 0;
+            }
             break;
 
         default:
@@ -500,17 +519,17 @@ static void draw_bongo(bool minimal)
         sprintf(wpm, "WPM:%03d", get_current_wpm());
         oled_write(wpm, false);
 
-        // calculate && print clock
-        oled_set_cursor(0, 2);
-        uint8_t  hour = last_minute / 60;
-        uint16_t minute = last_minute % 60;
-        bool is_pm = (hour / 12) > 0;
-        hour = hour % 12;
-        if (hour == 0) {
-            hour = 12;
-        }
-        static char time_str[8] = "";
-        sprintf(time_str, "%02d:%02d%s", hour, minute, is_pm ? "pm" : "am");
-        oled_write(time_str, false);
+        // // calculate && print clock
+        // oled_set_cursor(0, 2);
+        // uint8_t  hour = last_minute / 60;
+        // uint16_t minute = last_minute % 60;
+        // bool is_pm = (hour / 12) > 0;
+        // hour = hour % 12;
+        // if (hour == 0) {
+        //     hour = 12;
+        // }
+        // static char time_str[8] = "";
+        // sprintf(time_str, "%02d:%02d%s", hour, minute, is_pm ? "pm" : "am");
+        // oled_write(time_str, false);
     }
 }

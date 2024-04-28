@@ -1,5 +1,5 @@
 /*
-Copyright 2022 Joe Scotto
+Copyright 2024 Ramy Elabbadi
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,6 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#include "stdint.h"
+#include "stdbool.h"
+
 // Define options
 #define PERMISSIVE_HOLD
 #define TAPPING_TERM_PER_KEY
@@ -28,15 +31,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define I2C_DRIVER I2CD0
 #define I2C1_SDA_PIN GP0
 #define I2C1_SCL_PIN GP1
-// #define BONGO_ENABLE
+#define BONGO_ENABLE
 
-// extern uint8_t oled_mode;
+extern uint8_t oled_mode;
 
-// enum oled_modes {
-//   OLED_BONGO,
-//   OLED_BONGO_MIN
-//   OLED_DEFAULT,
-//   OLED_TIME,
-//   OLED_OFF,
-//   _NUM_OLED_MODES
-// };
+enum oled_modes {
+  OLED_BONGO,
+  OLED_BONGO_MIN,
+  OLED_DEFAULT,
+  OLED_TIME,
+  OLED_OFF,
+  _NUM_OLED_MODES
+};
