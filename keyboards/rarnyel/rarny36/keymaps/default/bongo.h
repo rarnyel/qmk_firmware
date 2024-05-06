@@ -472,12 +472,7 @@ static void draw_bongo(bool minimal)
     switch (anim_state)
     {
         case Idle:
-            // sprintf(wpm, "IDL:%03d", get_current_wpm());
-            // oled_write(wpm, false);
-            if (minimal)
-                oled_write_raw_P(idle_minimal[abs((IDLE_FRAMES - 1) - current_idle_frame)], ANIM_SIZE);
-            else
-                oled_write_raw_P(idle[abs((IDLE_FRAMES - 1) - current_idle_frame)], ANIM_SIZE);
+            oled_write_raw_P(idle_minimal[abs((IDLE_FRAMES - 1) - current_idle_frame)], ANIM_SIZE);
             if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION)
             {
                 current_idle_frame = (current_idle_frame + 1) % IDLE_FRAMES;
@@ -486,23 +481,13 @@ static void draw_bongo(bool minimal)
             break;
 
         case Prep:
-            // sprintf(wpm, "PRP:%03d", get_current_wpm());
-            // oled_write(wpm, false);
-            if (minimal)
-                oled_write_raw_P(prep_minimal[0], ANIM_SIZE);
-            else
-                oled_write_raw_P(prep[0], ANIM_SIZE);
+            oled_write_raw_P(prep_minimal[0], ANIM_SIZE);
             break;
 
         case Tap:
-            // sprintf(wpm, "TAP:%03d", current_tap_frame);
-            // oled_write(wpm, false);
             if (tap_flag)
             {
-                if (minimal)
-                    oled_write_raw_P(tap_minimal[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
-                else
-                    oled_write_raw_P(tap[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
+                oled_write_raw_P(tap_minimal[abs((TAP_FRAMES - 1) - current_tap_frame)], ANIM_SIZE);
                 current_tap_frame = (current_tap_frame + 1) % TAP_FRAMES;
                 tap_flag = 0;
             }
@@ -510,26 +495,5 @@ static void draw_bongo(bool minimal)
 
         default:
             break;
-    }
-
-    if (!minimal)
-    {
-        // print wpm
-        oled_set_cursor(0, 0);
-        sprintf(wpm, "WPM:%03d", get_current_wpm());
-        oled_write(wpm, false);
-
-        // // calculate && print clock
-        // oled_set_cursor(0, 2);
-        // uint8_t  hour = last_minute / 60;
-        // uint16_t minute = last_minute % 60;
-        // bool is_pm = (hour / 12) > 0;
-        // hour = hour % 12;
-        // if (hour == 0) {
-        //     hour = 12;
-        // }
-        // static char time_str[8] = "";
-        // sprintf(time_str, "%02d:%02d%s", hour, minute, is_pm ? "pm" : "am");
-        // oled_write(time_str, false);
     }
 }
