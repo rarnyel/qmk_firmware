@@ -1,2 +1,2 @@
 # Enable VIA for this keymap
-VIA_ENABLE = yes
+# VIA_ENABLE = yes
