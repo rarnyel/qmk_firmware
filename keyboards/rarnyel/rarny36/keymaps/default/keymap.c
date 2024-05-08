@@ -32,12 +32,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT_split_3x5_3(
         KC_1,       KC_2,       KC_3,       KC_4,       KC_5,           KC_6,       KC_7,       KC_8,       KC_9,       KC_0, 
         KC_LCTL,    KC_LSFT,    DF(1),      KC_MINS,    KC_BSPC,        KC_HOME,    KC_PGUP,    KC_PGDN,    KC_END,     KC_RSFT, 
-        KC_NUBS,    KC_COMM,    KC_PDOT,    KC_EQL,     KC_ENT,         KC_GRV,     KC_NUHS,    KC_QUOT,    KC_LBRC,    KC_RBRC, 
+        KC_NUBS,    KC_COMM,    KC_PDOT,    KC_EQL,     KC_PENT,        KC_GRV,     KC_NUHS,    KC_QUOT,    KC_LBRC,    KC_RBRC, 
                                 KC_NO,      DF(0),      KC_NO,          KC_TAB,     KC_SPC,     KC_DEL
     ),
     [2] = LAYOUT_split_3x5_3(
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10, 
-        KC_F11,     KC_F12,     DF(2),      KC_NO,      KC_SLEP,    KC_LEFT,    KC_UP,      KC_DOWN,    KC_LEFT,    KC_CAPS, 
+        KC_F11,     KC_F12,     DF(2),      KC_NO,      KC_SLEP,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   KC_CAPS, 
         KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPLY,    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_BRID,    KC_BRIU, 
                                 KC_NO,      DF(0),      KC_NO,      KC_NO,      KC_NO,      KC_NO
     )
